@@ -11,7 +11,7 @@ def _normalize_terms_weights(kw):
     res = []
 
     max_weight, min_weight = kw[0][1], kw[-1][1]
-    a, b = np.polyfit([max_weight, min_weight], [1, 0], 1)
+    a, b = np.polyfit([max_weight, min_weight], [1, 0.1], 1)
     for term, weight in kw:
         normalized_weight = max(0, a * weight + b)
         res += [[str(term), normalized_weight]]
